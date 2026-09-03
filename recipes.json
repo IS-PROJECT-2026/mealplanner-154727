@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "title": "Ugali with Sukuma Wiki and Beef Stew",
+    "category": "Dinner",
+    "diet": "High Protein",
+    "prepTime": "35 mins",
+    "ingredients": [
+      "2 cups maize meal",
+      "4 cups water",
+      "1 bunch collard greens (sukuma wiki), chopped",
+      "300g beef cubes",
+      "2 tomatoes, diced",
+      "1 onion, chopped",
+      "2 tbsp cooking oil",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Bring water to a boil in a heavy-bottomed pot, then gradually stir in maize meal until thick and firm.",
+      "Cover and simmer on low heat for 10 minutes, then mold and set aside.",
+      "In a separate pan, sauté onions and tomatoes in oil, add beef cubes, and cook until tender.",
+      "In another pan, quickly sauté onions and the chopped collard greens for 5 minutes.",
+      "Serve the beef and greens alongside hot ugali."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Avocado and Egg Toast",
+    "category": "Breakfast",
+    "diet": "Vegetarian",
+    "prepTime": "10 mins",
+    "ingredients": [
+      "2 slices whole wheat bread",
+      "1 ripe avocado, mashed",
+      "2 eggs",
+      "1 tbsp butter or oil",
+      "Salt, black pepper, and chili flakes"
+    ],
+    "instructions": [
+      "Toast the bread slices until golden brown.",
+      "Mash the ripe avocado with a pinch of salt and black pepper, then spread evenly over the toast.",
+      "Fry or poach the eggs to your preference.",
+      "Place an egg on top of each avocado toast and garnish with chili flakes."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Chicken Stir-Fry Noodles",
+    "category": "Lunch",
+    "diet": "Balanced",
+    "prepTime": "25 mins",
+    "ingredients": [
+      "200g noodles",
+      "1 chicken breast, sliced into strips",
+      "1 bell pepper, sliced",
+      "1 carrot, julienned",
+      "2 tbsp soy sauce",
+      "1 garlic clove, minced",
+      "2 tbsp cooking oil"
+    ],
+    "instructions": [
+      "Cook noodles according to package instructions, then drain.",
+      "Heat oil in a wok or large pan, add minced garlic and chicken strips, and cook until browned.",
+      "Add sliced bell peppers and carrots, stirring frequently until tender-crisp.",
+      "Toss in the cooked noodles and pour soy sauce over the mixture.",
+      "Stir well until completely heated through and serve."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Creamy Lentil Soup (Ndengu Soup)",
+    "category": "Dinner",
+    "diet": "Vegan",
+    "prepTime": "40 mins",
+    "ingredients": [
+      "1 cup green lentils (ndengu), pre-boiled",
+      "1 onion, chopped",
+      "2 tomatoes, diced",
+      "2 carrots, diced",
+      "2 cloves garlic, minced",
+      "1 tsp cumin powder",
+      "2 cups vegetable broth or water",
+      "Cooking oil and salt"
+    ],
+    "instructions": [
+      "Heat oil in a pot and sauté onions, garlic, and carrots until soft.",
+      "Add diced tomatoes and cumin powder, cooking until a thick paste forms.",
+      "Stir in the pre-boiled green lentils and vegetable broth.",
+      "Simmer on medium-low heat for 15 minutes to allow flavors to blend, then serve warm."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Tropical Fruit Smoothie Bowl",
+    "category": "Breakfast",
+    "diet": "Vegan",
+    "prepTime": "10 mins",
+    "ingredients": [
+      "1 frozen banana",
+      "1 cup frozen mango chunks",
+      "1/2 cup coconut milk",
+      "Granola for topping",
+      "Chia seeds for topping"
+    ],
+    "instructions": [
+      "Blend the frozen banana, mango chunks, and coconut milk in a blender until smooth and thick.",
+      "Pour the smoothie mixture into a bowl.",
+      "Top with a handful of granola and a sprinkle of chia seeds before serving."
+    ]
+  }
+]
