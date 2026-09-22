@@ -3,9 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchBar = document.getElementById("search-bar");
   const filterButtons = document.querySelectorAll(".filter-btn");
   
+  const modal = document.getElementById("recipe-modal");
+  const closeModalBtn = document.getElementById("close-modal");
+
   let allRecipes = [];
   let currentSearchTerm = "";
   let currentCategory = "all";
+
+  // Global close modal listeners (bound once)
+  closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 
   function displayRecipes(recipesToDisplay) {
     gridContainer.innerHTML = "";
@@ -13,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gridContainer.innerHTML = "<p>No recipes found.</p>";
       return;
     }
+
     recipesToDisplay.forEach((recipe) => {
       const card = document.createElement("div");
       card.classList.add("recipe-card");
@@ -22,6 +37,32 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><strong>Prep Time:</strong> ${recipe.prepTime}</p>
         <p><strong>Ingredients:</strong> ${recipe.ingredients.length} items</p>
       `;
+      
+      // Click listener to open modal for this specific recipe
+      card.addEventListener("click", () => {
+        document.getElementById("modal-title").innerText = recipe.title;
+        document.getElementById("modal-category").innerText = `${recipe.category} (${recipe.diet})`;
+        document.getElementById("modal-prep").innerText = recipe.prepTime;
+        
+        const ingList = document.getElementById("modal-ingredients");
+        ingList.innerHTML = "";
+        recipe.ingredients.forEach(ing => {
+          const li = document.createElement("li");
+          li.innerText = `${ing.amount} ${ing.unit} ${ing.name}`;
+          ingList.appendChild(li);
+        });
+        
+        const instList = document.getElementById("modal-instructions");
+        instList.innerHTML = "";
+        recipe.instructions.forEach(step => {
+          const li = document.createElement("li");
+          li.innerText = step;
+          instList.appendChild(li);
+        });
+        
+        modal.style.display = "flex";
+      });
+
       gridContainer.appendChild(card);
     });
   }
@@ -29,12 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function filterAndDisplay() {
     let filtered = allRecipes;
 
-    // Filter by category
     if (currentCategory !== "all") {
       filtered = filtered.filter(recipe => recipe.category.toLowerCase() === currentCategory.toLowerCase());
     }
 
-    // Filter by search term
     if (currentSearchTerm.trim() !== "") {
       filtered = filtered.filter(recipe =>
         recipe.title.toLowerCase().includes(currentSearchTerm)
