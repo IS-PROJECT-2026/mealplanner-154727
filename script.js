@@ -6,9 +6,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("recipe-modal");
   const closeModalBtn = document.getElementById("close-modal");
 
+  const weeklyPlan = {
+    Monday: null,
+    Tuesday: null,
+    Wednesday: null,
+    Thursday: null,
+    Friday: null,
+    Saturday: null,
+    Sunday: null
+  };
+
+  const assignBtn = document.getElementById("assign-btn");
+  const daySelect = document.getElementById("assign-day-select");
+  
   let allRecipes = [];
   let currentSearchTerm = "";
   let currentCategory = "all";
+  let selectedRecipeForAssignment = null; // Track currently viewed recipe
+
+  // Assign button click listener
+  assignBtn.addEventListener("click", () => {
+    if (!selectedRecipeForAssignment) {
+      alert("Please select a recipe first!");
+      return;
+    }
+ 
+    const chosenDay = daySelect.value;
+    weeklyPlan[chosenDay] = selectedRecipeForAssignment;
+ 
+    // Update the UI slot for that day
+    const daySlot = document.querySelector(`.day-slot[data-day="${chosenDay}"] .slot-content`);
+    if (daySlot) {
+      daySlot.innerHTML = `<strong>${selectedRecipeForAssignment.title}</strong><br><small>${selectedRecipeForAssignment.category}</small>`;
+    }
+ 
+    // Close modal after assigning
+    modal.style.display = "none";
+    alert(`Successfully added ${selectedRecipeForAssignment.title} to ${chosenDay}!`);
+  });
 
   // Global close modal listeners (bound once)
   closeModalBtn.addEventListener("click", () => {
@@ -40,15 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Click listener to open modal for this specific recipe
       card.addEventListener("click", () => {
+        selectedRecipeForAssignment = recipe; // Set active recipe for assignment
+
         document.getElementById("modal-title").innerText = recipe.title;
         document.getElementById("modal-category").innerText = `${recipe.category} (${recipe.diet})`;
         document.getElementById("modal-prep").innerText = recipe.prepTime;
         
         const ingList = document.getElementById("modal-ingredients");
         ingList.innerHTML = "";
-        recipe.ingredients.forEach(ing => {
+        recipe.ingredients.forEach(ingredient => {
           const li = document.createElement("li");
-          li.innerText = `${ing.amount} ${ing.unit} ${ing.name}`;
+          li.innerText = ingredient; // Fixed: handles flat strings properly
           ingList.appendChild(li);
         });
         
